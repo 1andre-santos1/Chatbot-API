@@ -3,7 +3,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./models');
 const cors = require('cors');
-const cool = require('cool-ascii-faces')
+const cool = require('cool-ascii-faces');
+const http = require('hhtp');
+
+const server = http.server(app);
 
 const apiUtilizadores = require('./routes/apiUtilizadores.js');
 const apiLocalizacao = require ('./routes/apiLocalizacoes.js');
@@ -48,7 +51,7 @@ apiGeneralQuestions(app);
 apiSpecificQuestions(app);
 
 //db.sequelize.sync().then(function(){
-app.listen(8000, function(){
+server.listen(8000, function(){
         console.log("A escuta no porto 8000");
 });
 //});
