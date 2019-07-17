@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dados.js; npm start"
   },
   "author": "",
   "license": "ISC",
@@ -12,12 +13,14 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "curl": "^0.1.4",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
     "ibm-watson": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
+    "pgloader": "^1.1.6",
     "sequelize": "^5.8.7"
   },
   "devDependencies": {
