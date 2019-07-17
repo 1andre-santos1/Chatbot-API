@@ -45,9 +45,9 @@ apiGeneralQuestions(app);
 apiSpecificQuestions(app);
 
 //db.sequelize.sync().then(function(){
-/*app.listen(8000, function(){
+app.listen(8000, function(){
         console.log("A escuta no porto 8000");
-});*/
+});
 //});
 
 
