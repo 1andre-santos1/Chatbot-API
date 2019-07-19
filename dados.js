@@ -11,7 +11,6 @@ const sequelize = new Sequelize('davsa9krl78qln','hbuzrjvxjisohx','4593e3d226ad1
     }
 });
 
-sequelize.dialect.supports.schemas = true;
 
 //****************************************CRIAÇÃO DE TABELAS******************************************************************/
 //criar tabela de localização
