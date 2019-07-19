@@ -32,8 +32,8 @@ app.use((req, res, next) => {
 });
 
 
-const sequelize = new Sequelize('d8subjkhifnsd4','tmadjxnbiggkqk','02b4fe975d3a9d8860478317294d4c036907eddac364ca71467c6285c2842698',{
-    host: 'ec2-23-21-160-38.compute-1.amazonaws.com',
+const sequelize = new Sequelize('davsa9krl78qln','hbuzrjvxjisohx','4593e3d226ad19ba0b88b32d025a377642aab7334ab98d0e1e77cc178f073693',{
+    host: 'ec2-54-243-208-234.compute-1.amazonaws.com',
     dialect: 'postgres',
     port: 5432,
     dialectOptions:{
