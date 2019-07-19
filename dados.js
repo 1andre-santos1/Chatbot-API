@@ -46,9 +46,9 @@ var Jobs = sequelize.define('Jobs',{
 });
 
 
-Locations.hasMany(Jobs);
+//Locations.hasMany(Jobs);
 
-Areas.hasMany(Jobs);
+//Areas.hasMany(Jobs);
 
 //Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
 /*var UsersJobs = sequelize.define('UsersJobs', {
@@ -57,7 +57,7 @@ Areas.hasMany(Jobs);
 });*/
 
 
- Jobs.hasMany(Users);
+ //Jobs.hasMany(Users);
   
   /*Jobs.belongsToMany(Users, {
     through: {
