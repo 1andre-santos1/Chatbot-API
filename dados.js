@@ -103,16 +103,12 @@ sequelize.sync({
         username: 'admin1',
         password: '$2b$08$Fh6Y6zd4zsHP1igb15PK0.cI2O6y48jYj1zP4m6MbTylOtPKDwqk.',
         email: 'aferreira@hotmail.com',
-        createdAt: new Date(),
-        updatedAt: new Date()
     },
     {
         name:'André Santos',
         username: 'admin2',
         password: '$2b$08$wklXozkQ266hgRm2y6f7KOcjZPTLdKOVTp35TbRKnbj0hmrzNVrBW',
-        email: 'asantos@hotmail.com',
-        createdAt: new Date(),
-        updatedAt: new Date()
+        email: 'asantos@hotmail.com'
 
     }
 ]);
@@ -124,29 +120,19 @@ sequelize.sync({
 }).then(function(){
     Locations.bulkCreate([
         {
-            name:'Tomar',
-            createdAt: new Date(),
-        updatedAt: new Date()
+            name:'Tomar'
         },
         {
-            name:'Lisboa',
-            createdAt: new Date(),
-        updatedAt: new Date()
+            name:'Lisboa'
         },
         {
-            name:'Viseu',
-            createdAt: new Date(),
-        updatedAt: new Date()
+            name:'Viseu'
         },
         {
-            name:'Porto',
-            createdAt: new Date(),
-        updatedAt: new Date()
+            name:'Porto'
         },
         {
-            name:'Coimbra',
-            createdAt: new Date(),
-        updatedAt: new Date()
+            name:'Coimbra'
         }
     ])
 });
@@ -158,19 +144,13 @@ sequelize.sync({
 }).then(function() {
     Areas.bulkCreate([
     {
-        name: 'Consultoria',
-        createdAt: new Date(),
-        updatedAt: new Date()
+        name: 'Consultoria'
     },
     {
-        name:'Infraestruturas',
-        createdAt: new Date(),
-        updatedAt: new Date()
+        name:'Infraestruturas'
     },
     {
-        name:'Desenvolvimento',
-        createdAt: new Date(),
-        updatedAt: new Date()
+        name:'Desenvolvimento'
     }
 ]);
 });
@@ -198,9 +178,7 @@ sequelize.sync({
             where :{
                 id: 1
             }
-        }),
-        createdAt: new Date(),
-        updatedAt: new Date()
+        })
     }/*,
     {
         name: 'Programador Junior',
