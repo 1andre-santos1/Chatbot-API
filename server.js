@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./models');
 const cors = require('cors');
-const cool = require('cool-ascii-faces');
 
 const apiUtilizadores = require('./routes/apiUtilizadores.js');
 const apiLocalizacao = require ('./routes/apiLocalizacoes.js');
