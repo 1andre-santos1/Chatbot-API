@@ -50,7 +50,7 @@ module.exports = function (app, db) {
      *
      */
     app.get('/api/users', function (req, res) {
-        var token = req.headers['x-access-token'];
+       /* var token = req.headers['x-access-token'];
         if (!token) {
             return res.status(401).send({ auth: false, message: "Não existe token" }
             )
@@ -69,8 +69,15 @@ module.exports = function (app, db) {
         }
         catch{
             return res.send("Token expirou ou inválido");
-        }
+        }*/
+        db.Users.findAll({
 
+        }).then(function (result) {
+            res.json(result);
+        }).catch(function (err) {
+            console.error("Erro get Utilizadores", err)
+            res.status(500).json({ erro: "Erro no pedido dos Utilizadores" })
+        });
     });
 
     /**
