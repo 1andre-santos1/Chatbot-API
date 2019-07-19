@@ -14,13 +14,15 @@ const sequelize = new Sequelize('d8subjkhifnsd4','tmadjxnbiggkqk','02b4fe975d3a9
 //****************************************CRIAÇÃO DE TABELAS******************************************************************/
 //criar tabela de localização
 var Locations = sequelize.define('Locations', {
-    name: Sequelize.STRING
+    name: Sequelize.STRING,
+    freezeTableName: true
 });
 
 
 //Criação da tabela de Áreas 
 var Areas = sequelize.define('Areas', {
-    name: Sequelize.STRING
+    name: Sequelize.STRING,
+    freezeTableName: true
 });
 
 //cria tabela de utiilizadores se não existir
@@ -28,7 +30,8 @@ var Users = sequelize.define('Users', {
     name: Sequelize.STRING,
     username: Sequelize.STRING,
     password: Sequelize.STRING,
-    email: Sequelize.STRING
+    email: Sequelize.STRING,
+    freezeTableName: true
 });
 
 
@@ -44,7 +47,8 @@ var Jobs = sequelize.define('Jobs',{
         travelOtCountrys: Sequelize.BOOLEAN,
         shifts: Sequelize.BOOLEAN,
         location: Sequelize.INTEGER,
-        area: Sequelize.INTEGER    
+        area: Sequelize.INTEGER,
+        freezeTableName: true    
 });
 
 
