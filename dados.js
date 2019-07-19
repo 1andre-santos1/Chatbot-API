@@ -20,6 +20,56 @@ var Users = sequelize.define('Users', {
     email: Sequelize.STRING
 });
 
+
+//criar tabela de localização
+var Locations = sequelize.define('Locations', {
+    name: Sequelize.STRING
+});
+
+
+//Criação da tabela de Áreas 
+var Areas = sequelize.define('Areas', {
+    name: Sequelize.STRING
+});
+
+
+//criar tabela de vagas 
+var Jobs = sequelize.define('Jobs',{
+        name: Sequelize.STRING,
+        candidateDescript: Sequelize.TEXT('long'),
+        remote: Sequelize.BOOLEAN,
+        formation: Sequelize.BOOLEAN,
+        travelOtCountrys: Sequelize.BOOLEAN,
+        shifts: Sequelize.BOOLEAN,
+        location: Sequelize.INTEGER,
+        area: Sequelize.INTEGER    
+});
+
+
+Locations.hasMany(Jobs);
+
+Areas.hasMany(Jobs);
+
+//Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
+/*var UsersJobs = sequelize.define('UsersJobs', {
+    idJob: Sequelize.INTEGER,
+    idUser: Sequelize.INTEGER
+});*/
+
+
+ Jobs.hasMany(Users);
+  
+  /*Jobs.belongsToMany(Users, {
+    through: {
+      model: UsersJobs,
+      unique: false
+    },
+    foreignKey: 'idUser'
+  });*/
+
+
+//************************************************INSERÇÃO DE VALORES NAS TABELAS**********************************************************
+
 //inser valores na tabela utilizadores
 sequelize.sync({
     force: true
@@ -39,12 +89,6 @@ sequelize.sync({
 
     }
 ]);
-});
-
-
-//criar tabela de localização
-var Locations = sequelize.define('Locations', {
-    name: Sequelize.STRING
 });
 
 
@@ -71,11 +115,6 @@ sequelize.sync({
 });
 
 
-//Criação da tabela de Áreas 
-var Areas = sequelize.define('Areas', {
-    name: Sequelize.STRING
-});
-
 //inserção de valores na tabela
 sequelize.sync({
     force: true
@@ -93,18 +132,6 @@ sequelize.sync({
 ]);
 });
 
-
-//criar tabela de vagas 
-var Jobs = sequelize.define('Jobs',{
-        name: Sequelize.STRING,
-        candidateDescript: Sequelize.TEXT('long'),
-        remote: Sequelize.BOOLEAN,
-        formation: Sequelize.BOOLEAN,
-        travelOtCountrys: Sequelize.BOOLEAN,
-        shifts: Sequelize.BOOLEAN,
-        location: Sequelize.INTEGER,
-        area: Sequelize.INTEGER    
-});
 
 //inser valores na tabela vagas
 sequelize.sync({
@@ -342,41 +369,6 @@ sequelize.sync({
 ]);
 
 });
-
-
-
-//Locations.hasMany(Jobs);
-
-//Areas.hasMany(Jobs);
-
-//Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
-/*var UsersJobs = sequelize.define('UsersJobs', {
-    idJob: Sequelize.INTEGER,
-    idUser: Sequelize.INTEGER
-});*/
-
-
- //Jobs.hasMany(Users);
-  
-  /*Jobs.belongsToMany(Users, {
-    through: {
-      model: UsersJobs,
-      unique: false
-    },
-    foreignKey: 'idUser'
-  });*/
-
-
-//************************************************INSERÇÃO DE VALORES NAS TABELAS**********************************************************
-
-
-
-
-
-
-
-
-
 
 
 
