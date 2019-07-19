@@ -20,7 +20,7 @@ var Users = sequelize.define('Users', {
     email: Sequelize.STRING
 });
 
-/*
+
 //criar tabela de localização
 var Locations = sequelize.define('Locations', {
     name: Sequelize.STRING
@@ -46,41 +46,27 @@ var Jobs = sequelize.define('Jobs',{
 });
 
 
-Locations.hasMany(Jobs, {
-    foreignKey: 'location',
-    onDelete: 'Cascade'
-        
-});
+Locations.hasMany(Jobs);
 
-Areas.hasMany(Jobs, {
-    foreignKey: 'area',
-    onDelete: 'Cascade'
-
-});
+Areas.hasMany(Jobs);
 
 //Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
-var UsersJobs = sequelize.define('UsersJobs', {
+/*var UsersJobs = sequelize.define('UsersJobs', {
     idJob: Sequelize.INTEGER,
     idUser: Sequelize.INTEGER
-});
+});*/
 
 
- Users.belongsToMany(Jobs, {
-    through: {
-      model: UsersJobs,
-      unique: false
-    },
-    foreignKey: 'idJob'
-});
+ Users.belongsToMany(Jobs);
   
-  Jobs.belongsToMany(Users, {
+  /*Jobs.belongsToMany(Users, {
     through: {
       model: UsersJobs,
       unique: false
     },
     foreignKey: 'idUser'
-  });
-*/
+  });*/
+
 
 //************************************************INSERÇÃO DE VALORES NAS TABELAS**********************************************************
 
@@ -105,7 +91,7 @@ sequelize.sync({
 ]);
 });
 
-/*
+
 sequelize.sync({
     force:true
 }).then(function(){
@@ -146,15 +132,14 @@ sequelize.sync({
 ]);
 });
 
-*/
+
 //inser valores na tabela vagas
-/*
 sequelize.sync({
     force: true
 }).then(function() {
-    Jobs.bulkCreate([*/
+    Jobs.bulkCreate([
     //********************************Area de Consultoria*********************************/
-    /*{
+    {
         name: 'System Operations & Monitoring',
         candidateDescript: '12º Ano em área tecnológica ou frequência académica em Tecnológia; Orientação para o cliente; Conhecimentos em Operação de Sistemas (preferencial);Conhecimentos da língua Inglesa falada e escrita; Conhecimentos da língua Castelhana falada e escrita (preferencial); Disponibilidade para turnos 24*7;',
         remote: true,
@@ -223,9 +208,9 @@ sequelize.sync({
         shifts: false,
         location: 1, 
         area: 1
-    },*/
+    },
     //********************************Área de Infraestruturas******************************/
-   /* {
+    {
         name: 'Analista de produção Mainframe',
         candidateDescript: 'Implementação e manutenção de cadeias e jobs em Control-M e IWS; Implementação e manutenção de calendários em Control-M e IWS; Manutenção das rotinas e utilitários base do Control-M e IWS; Análise e customização de JCL; Análise e resolução de cancelamentos em jobs no batch rotinado; Implementação e manutenção da submissão dos processos batch via CICS; Implementação e manutenção da submissão dos processos via FTSM; Análise à performance do batch para sugestão de melhorias - Performance Tuning. ',
         remote: false,
@@ -294,9 +279,9 @@ sequelize.sync({
         shifts: true,
         location: 2, 
         area: 2
-    },*/
+    },
     //********************************Área de Desenvolvimento***************************/
-    /*{
+    {
         name: 'Software Developer-J2EE',
         candidateDescript: ' Experiência profissional pelo menos de menos 2/3 anos com J2EE; Experiência no desenvolvimento de aplicações para a web; Conhecimentos de Bases de Dados; Bons conhecimentos de inglês falado e escrito.',
         remote: true,
@@ -377,13 +362,14 @@ sequelize.sync({
         area: 3 
     },
     
-    */
-/*
+    
+
+
     
 ]);
 
 });
-*/
+
 
 
 
