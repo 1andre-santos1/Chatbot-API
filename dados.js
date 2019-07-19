@@ -57,7 +57,7 @@ Areas.hasMany(Jobs);
 });*/
 
 
- Users.belongsToMany(Jobs);
+ Jobs.hasMany(Users);
   
   /*Jobs.belongsToMany(Users, {
     through: {
