@@ -41,6 +41,8 @@ const sequelize = new Sequelize('d8subjkhifnsd4','tmadjxnbiggkqk','02b4fe975d3a9
     }
 });
 
+sequelize.dialect.supports.schemas = true;
+
 apiUtilizadores(app, db);
 apiLocalizacao(app, db);
 apiAreas(app, db);
