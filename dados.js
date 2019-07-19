@@ -178,7 +178,9 @@ sequelize.sync({
             where :{
                 id: 1
             }
-        })
+        }),
+        createdAt: new Date(),
+        updatedAt: new Date()
     }/*,
     {
         name: 'Programador Junior',
