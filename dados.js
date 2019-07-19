@@ -2,9 +2,13 @@
 const Sequelize = require('sequelize');
 const utilizadores = require('./models/utilizadores');
 
-const sequelize = new Sequelize('projetofinal','root','password',{
-    host: 'localhost',
-    dialect: 'mysql'
+const sequelize = new Sequelize('d8subjkhifnsd4','tmadjxnbiggkqk','02b4fe975d3a9d8860478317294d4c036907eddac364ca71467c6285c2842698',{
+    host: 'ec2-23-21-160-38.compute-1.amazonaws.com',
+    dialect: 'postgres',
+    port: 5432,
+    dialectOptions:{
+        "ssl": true
+    }
 });
 
 //****************************************CRIAÇÃO DE TABELAS******************************************************************/
@@ -378,19 +382,6 @@ sequelize.sync({
     
 ]);
 
-});
-
-
-//inser valores na tabela utilizadores
-sequelize.sync({
-    force: true
-}).then(function() {
-    UsersJobs.bulkCreate([
-    {
-        idJob: 1,
-        idUser: 1
-    }
-]);
 });
 
 
