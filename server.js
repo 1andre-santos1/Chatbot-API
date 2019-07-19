@@ -4,9 +4,6 @@ const bodyParser = require('body-parser');
 const db = require('./models');
 const cors = require('cors');
 const cool = require('cool-ascii-faces');
-const http = require('hhtp');
-
-const server = http.server(app);
 
 const apiUtilizadores = require('./routes/apiUtilizadores.js');
 const apiLocalizacao = require ('./routes/apiLocalizacoes.js');
@@ -23,8 +20,6 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json"}));
 
-app.get('/cool', (req, res) => res.send(cool()));
-
 app.use(express.static("app/public"));
 app.use(cors());
 
@@ -37,9 +32,13 @@ app.use((req, res, next) => {
 });
 
 
-const sequelize = new Sequelize('projetofinal','root','password',{
-    host: 'localhost',
-    dialect: 'mysql'
+const sequelize = new Sequelize('d8subjkhifnsd4','tmadjxnbiggkqk','02b4fe975d3a9d8860478317294d4c036907eddac364ca71467c6285c2842698',{
+    host: 'ec2-23-21-160-38.compute-1.amazonaws.com',
+    dialect: 'postgres',
+    port: 5432,
+    dialectOptions:{
+        "ssl": true
+    }
 });
 
 apiUtilizadores(app, db);
@@ -50,11 +49,14 @@ apiLogin(app, db);
 apiGeneralQuestions(app);
 apiSpecificQuestions(app);
 
-//db.sequelize.sync().then(function(){
-server.listen(8000, function(){
-        console.log("A escuta no porto 8000");
+var port = process.env.PORT || 8000;
+
+
+db.sequelize.sync().then(function(){
+    app.listen(port, function(){
+            console.log(`A escuta no porto ${port}`);
+    });
 });
-//});
 
 
 
