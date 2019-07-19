@@ -11,7 +11,6 @@ module.exports = function(sequelize, Datatypes){
     Users.associate = function (models) {
         Users.belongsToMany(models.Jobs, {
             through: 'UsersJobs',
-            as: 'vagas',
             foreignKey: 'idUser'
         });
     };

@@ -3,6 +3,14 @@ module.exports = function(sequelize, Datatypes){
         name: Datatypes.STRING
     });
 
+    Areas.associate = function(models){
+        Areas.hasMany(models.Jobs, {
+            foreignKey: 'area',
+            onDelete: 'Cascade',
+            constraints: false
+        });
+    }
+
     return Areas;
 
 };
