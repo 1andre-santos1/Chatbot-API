@@ -60,11 +60,7 @@ Areas.hasMany(Jobs, {
     constraints: false
 });
 
-//Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
-var UsersJobs = sequelize.define('UsersJobs', {
-    idJob: Sequelize.INTEGER,
-    idUser: Sequelize.INTEGER
-});
+
 
 
  Users.belongsToMany(Jobs, {
@@ -86,6 +82,12 @@ var UsersJobs = sequelize.define('UsersJobs', {
     onDelete: 'Cascade',
     constraints: false
   });
+
+  //Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
+var UsersJobs = sequelize.define('UsersJobs', {
+    idJob: Sequelize.INTEGER,
+    idUser: Sequelize.INTEGER
+});
 
 
 //************************************************INSERÇÃO DE VALORES NAS TABELAS**********************************************************
