@@ -15,18 +15,12 @@ const sequelize = new Sequelize('d8subjkhifnsd4','tmadjxnbiggkqk','02b4fe975d3a9
 //criar tabela de localização
 var Locations = sequelize.define('Locations', {
     name: Sequelize.STRING,
-},{
-    schema: "postgresql-encircled-35189",
-    tableName: "Locations" 
 });
 
 
 //Criação da tabela de Áreas 
 var Areas = sequelize.define('Areas', {
     name: Sequelize.STRING
-},{
-    schema: "postgresql-encircled-35189",
-    tableName: "Areas" 
 });
 
 //cria tabela de utiilizadores se não existir
@@ -35,14 +29,7 @@ var Users = sequelize.define('Users', {
     username: Sequelize.STRING,
     password: Sequelize.STRING,
     email: Sequelize.STRING
-},{
-    schema: "postgresql-encircled-35189",
-    tableName: "Users" 
 });
-
-
-
-
 
 //criar tabela de vagas 
 var Jobs = sequelize.define('Jobs',{
@@ -54,22 +41,21 @@ var Jobs = sequelize.define('Jobs',{
         shifts: Sequelize.BOOLEAN,
         location: Sequelize.INTEGER,
         area: Sequelize.INTEGER    
-},{
-    schema: "postgresql-encircled-35189",
-    tableName: "Jobs" 
 });
  //Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
  var UsersJobs = sequelize.define('UsersJobs', {
     idJob: Sequelize.INTEGER,
     idUser: Sequelize.INTEGER
-},{
-    schema: "postgresql-encircled-35189",
-    tableName: "UserJobs" 
 });
 
 Locations.hasMany(Jobs, {
     foreignKey: 'location',
     onDelete: 'Cascade',
+    constraints: false
+});
+
+Jobs.belongsTo(Locations,{
+    foreignKey: 'location',
     constraints: false
 });
 
@@ -79,7 +65,10 @@ Areas.hasMany(Jobs, {
     constraints: false
 });
 
-
+Jobs.belongsTo(Areas,{
+    foreignKey: 'area',
+    constraints: false
+});
 
 
  Users.belongsToMany(Jobs, {
