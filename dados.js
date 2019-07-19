@@ -1,6 +1,6 @@
 
 const Sequelize = require('sequelize');
-const utilizadores = require('./models/utilizadores');
+
 
 const sequelize = new Sequelize('davsa9krl78qln','hbuzrjvxjisohx','4593e3d226ad19ba0b88b32d025a377642aab7334ab98d0e1e77cc178f073693',{
     host: 'ec2-54-243-208-234.compute-1.amazonaws.com',
