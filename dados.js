@@ -169,9 +169,17 @@ sequelize.sync({
         formation: false,
         travelOtCountrys: false,
         shifts: true,
-        location: 2, 
-        area: 1
-    },
+        location: Locations.findOne({
+            where :{
+                id: 2
+            }
+        }), 
+        area: Areas.findOne({
+            where :{
+                id: 1
+            }
+        })
+    }/*,
     {
         name: 'Programador Junior',
         candidateDescript: 'Recém-Licenciado em Engenharia Informática ou similares; Gosto pela área de programação; Boa comunicação e atitude proativa; Conhecimentos de inglês serão valorizados; Bom comunicador e orientação a cliente.',
@@ -231,8 +239,9 @@ sequelize.sync({
         shifts: false,
         location: 1, 
         area: 1
-    },
+    },*/
     //********************************Área de Infraestruturas******************************/
+    /*
     {
         name: 'Analista de produção Mainframe',
         candidateDescript: 'Implementação e manutenção de cadeias e jobs em Control-M e IWS; Implementação e manutenção de calendários em Control-M e IWS; Manutenção das rotinas e utilitários base do Control-M e IWS; Análise e customização de JCL; Análise e resolução de cancelamentos em jobs no batch rotinado; Implementação e manutenção da submissão dos processos batch via CICS; Implementação e manutenção da submissão dos processos via FTSM; Análise à performance do batch para sugestão de melhorias - Performance Tuning. ',
@@ -303,8 +312,9 @@ sequelize.sync({
         location: 2, 
         area: 2
     },
+    
     //********************************Área de Desenvolvimento***************************/
-    {
+    /*{
         name: 'Software Developer-J2EE',
         candidateDescript: ' Experiência profissional pelo menos de menos 2/3 anos com J2EE; Experiência no desenvolvimento de aplicações para a web; Conhecimentos de Bases de Dados; Bons conhecimentos de inglês falado e escrito.',
         remote: true,
@@ -384,7 +394,7 @@ sequelize.sync({
         location: 3, 
         area: 3 
     },
-    
+    */
     
 
 
