@@ -48,14 +48,14 @@ var Jobs = sequelize.define('Jobs',{
 
 Locations.hasMany(Jobs, {
     foreignKey: 'location',
-    onDelete: 'Cascade'
-        
+    onDelete: 'Cascade',
+    constraints: false
 });
 
 Areas.hasMany(Jobs, {
     foreignKey: 'area',
-    onDelete: 'Cascade'
-
+    onDelete: 'Cascade',
+    constraints: false
 });
 
 //Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
@@ -70,7 +70,9 @@ Areas.hasMany(Jobs, {
       model: UsersJobs,
       unique: false
     },
-    foreignKey: 'idJob'
+    foreignKey: 'idJob',
+    onDelete: 'Cascade',
+    constraints: false
 });
   
   Jobs.belongsToMany(Users, {
@@ -78,7 +80,9 @@ Areas.hasMany(Jobs, {
       model: UsersJobs,
       unique: false
     },
-    foreignKey: 'idUser'
+    foreignKey: 'idUser',
+    onDelete: 'Cascade',
+    constraints: false
   });
 
 
