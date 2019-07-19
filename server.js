@@ -52,7 +52,7 @@ apiSpecificQuestions(app);
 var port = process.env.PORT || 8000;
 
 
-db.sequelize.sync().then(function(){
+sequelize.sync().then(function(){
     app.listen(port, function(){
             console.log(`A escuta no porto ${port}`);
     });
