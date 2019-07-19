@@ -63,7 +63,7 @@ Jobs.belongsTo(Locations,{
 Areas.hasMany(Jobs, {
     foreignKey: 'area',
     onDelete: 'Cascade',
-    constraints: falseheroku
+    constraints: false
 });
 
 Jobs.belongsTo(Areas,{
