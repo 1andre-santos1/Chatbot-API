@@ -12,15 +12,6 @@ const sequelize = new Sequelize('d8subjkhifnsd4','tmadjxnbiggkqk','02b4fe975d3a9
 });
 
 //****************************************CRIAÇÃO DE TABELAS******************************************************************/
-//cria tabela de utiilizadores se não existir
-var Users = sequelize.define('Users', {
-    name: Sequelize.STRING,
-    username: Sequelize.STRING,
-    password: Sequelize.STRING,
-    email: Sequelize.STRING
-});
-
-
 //criar tabela de localização
 var Locations = sequelize.define('Locations', {
     name: Sequelize.STRING
@@ -31,6 +22,17 @@ var Locations = sequelize.define('Locations', {
 var Areas = sequelize.define('Areas', {
     name: Sequelize.STRING
 });
+
+//cria tabela de utiilizadores se não existir
+var Users = sequelize.define('Users', {
+    name: Sequelize.STRING,
+    username: Sequelize.STRING,
+    password: Sequelize.STRING,
+    email: Sequelize.STRING
+});
+
+
+
 
 
 //criar tabela de vagas 
