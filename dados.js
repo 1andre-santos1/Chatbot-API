@@ -51,7 +51,6 @@ var Jobs = sequelize.define('Jobs',{
 
 Locations.hasMany(Jobs, {
     foreignKey: 'location',
-    onDelete: 'Cascade',
     constraints: false
 });
 
@@ -62,7 +61,6 @@ Jobs.belongsTo(Locations,{
 
 Areas.hasMany(Jobs, {
     foreignKey: 'area',
-    onDelete: 'Cascade',
     constraints: false
 });
 
@@ -78,7 +76,6 @@ Jobs.belongsTo(Areas,{
       unique: false
     },
     foreignKey: 'idJob',
-    onDelete: 'Cascade',
     constraints: false
 });
   
@@ -88,7 +85,6 @@ Jobs.belongsTo(Areas,{
       unique: false
     },
     foreignKey: 'idUser',
-    onDelete: 'Cascade',
     constraints: false
   });
 
