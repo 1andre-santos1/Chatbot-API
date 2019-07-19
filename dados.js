@@ -46,26 +46,40 @@ var Jobs = sequelize.define('Jobs',{
 });
 
 
-Locations.hasMany(Jobs);
+Locations.hasMany(Jobs, {
+    foreignKey: 'location',
+    onDelete: 'Cascade'
+        
+});
 
-Areas.hasMany(Jobs);
+Areas.hasMany(Jobs, {
+    foreignKey: 'area',
+    onDelete: 'Cascade'
+
+});
 
 //Criação da Tabela do relacionamento n:m entre as vagas e os utilizadores
-/*var UsersJobs = sequelize.define('UsersJobs', {
+var UsersJobs = sequelize.define('UsersJobs', {
     idJob: Sequelize.INTEGER,
     idUser: Sequelize.INTEGER
-});*/
+});
 
 
- Jobs.hasMany(Users);
+ Users.belongsToMany(Jobs, {
+    through: {
+      model: UsersJobs,
+      unique: false
+    },
+    foreignKey: 'idJob'
+});
   
-  /*Jobs.belongsToMany(Users, {
+  Jobs.belongsToMany(Users, {
     through: {
       model: UsersJobs,
       unique: false
     },
     foreignKey: 'idUser'
-  });*/
+  });
 
 
 //************************************************INSERÇÃO DE VALORES NAS TABELAS**********************************************************
